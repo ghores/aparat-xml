@@ -21,8 +21,10 @@ public interface IService {
     Call<List<Video>> getNewVideos();
 
     @GET("getSpecial.php")
-    Call<List<News>> getSpecialVideos();
+    Call<List<Video>> getSpecialVideos();
 
+    @GET("getNews.php")
+    Call<List<News>> getNewsVideos();
     @POST("login.php")
     Call<ResponseBody> login(@Field("username") String user, @Field("password") String pass);
 

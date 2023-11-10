@@ -1,53 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
     <RelativeLayout
-        android:id="@+id/rel_best"
-        android:layout_margin="@dimen/margin_8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/lbl_best"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:background="@drawable/box_videos"
-            android:gravity="center"
-            android:text="@string/best_videos"
-            android:textColor="@color/white" />
+        <RelativeLayout
+            android:id="@+id/rel_news"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/news_height">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_best_video"
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/news_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.rd.PageIndicatorView
+                android:id="@+id/pageIndicatorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/margin_8"
+                app:piv_animationType="scale"
+                app:piv_dynamicCount="true"
+                app:piv_interactiveAnimation="true"
+                app:piv_selectedColor="#E91E63"
+                app:piv_unselectedColor="#FFC107"
+                app:piv_viewPager="@id/news_pager"
+                attrs:piv_padding="12dp"
+                attrs:piv_radius="8dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_best"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_best" />
-    </RelativeLayout>
+            android:layout_below="@id/rel_news"
+            android:layout_margin="@dimen/margin_8">
 
-    <RelativeLayout
-        android:layout_below="@id/rel_best"
-        android:layout_margin="@dimen/margin_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_best"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:background="@drawable/box_videos"
+                android:gravity="center"
+                android:text="@string/best_videos"
+                android:textColor="@color/white" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/lbl_new"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:background="@drawable/box_videos"
-            android:gravity="center"
-            android:text="@string/new_videos"
-            android:textColor="@color/white" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_best_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_best" />
+        </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_new_video"
+        <RelativeLayout
+            android:id="@+id/rel_new_videos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_new" />
+            android:layout_below="@id/rel_best"
+            android:layout_margin="@dimen/margin_8">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_new"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:background="@drawable/box_videos"
+                android:gravity="center"
+                android:text="@string/new_videos"
+                android:textColor="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_new_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_new" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_special_videos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rel_new_videos"
+            android:layout_margin="@dimen/margin_8">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_special"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:background="@drawable/box_videos"
+                android:gravity="center"
+                android:text="@string/special_videos"
+                android:textColor="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_special_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_special" />
+        </RelativeLayout>
     </RelativeLayout>
 
-
-</RelativeLayout>
+</ScrollView>

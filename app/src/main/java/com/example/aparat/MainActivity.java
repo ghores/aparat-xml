@@ -95,5 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 super.onPageScrollStateChanged(state);
             }
         });
+        binding.pager.setUserInputEnabled(false);
     }
 }
