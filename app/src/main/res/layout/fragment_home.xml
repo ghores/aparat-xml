@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+    <RelativeLayout
+        android:id="@+id/rel_best"
+        android:layout_margin="@dimen/margin_8"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/home" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_best"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:background="@drawable/box_videos"
+            android:gravity="center"
+            android:text="@string/best_videos"
+            android:textColor="@color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_best_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_best" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/rel_best"
+        android:layout_margin="@dimen/margin_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_new"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:background="@drawable/box_videos"
+            android:gravity="center"
+            android:text="@string/new_videos"
+            android:textColor="@color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_new_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_new" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

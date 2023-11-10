@@ -5,4 +5,6 @@
     <string name="home">Home</string>
     <string name="category">Category</string>
     <string name="favorite">Favorite</string>
+    <string name="new_videos">New videos</string>
+    <string name="best_videos">Best Videos</string>
 </resources>

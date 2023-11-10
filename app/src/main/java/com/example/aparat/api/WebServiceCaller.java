@@ -36,4 +36,22 @@ public class WebServiceCaller {
             }
         });
     }
+
+    public void getNewVideos(IResponseListener listener) {
+        Call<List<Video>> bestVideos = iService.getNewVideos();
+
+        bestVideos.enqueue(new Callback<List<Video>>() {
+            @Override
+            public void onResponse(Call<List<Video>> call, Response<List<Video>> response) {
+                Log.e("", "");
+                listener.onSuccess(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Video>> call, Throwable t) {
+                Log.e("", "");
+                listener.onFailure(t.getMessage());
+            }
+        });
+    }
 }
