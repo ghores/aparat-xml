@@ -1,9 +1,14 @@
 package com.example.aparat.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.lang.String;
 
-public class Video implements Serializable {
+public class Video implements Parcelable {
   private String special;
 
   private String creator;
@@ -23,6 +28,34 @@ public class Video implements Serializable {
   private String time;
 
   private String title;
+
+  public Video() {
+  }
+
+  protected Video(Parcel in) {
+    special = in.readString();
+    creator = in.readString();
+    view = in.readString();
+    cat_id = in.readString();
+    icon = in.readString();
+    link = in.readString();
+    description = in.readString();
+    id = in.readString();
+    time = in.readString();
+    title = in.readString();
+  }
+
+  public static final Creator<Video> CREATOR = new Creator<Video>() {
+    @Override
+    public Video createFromParcel(Parcel in) {
+      return new Video(in);
+    }
+
+    @Override
+    public Video[] newArray(int size) {
+      return new Video[size];
+    }
+  };
 
   public String getSpecial() {
     return this.special;
@@ -102,5 +135,24 @@ public class Video implements Serializable {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+  @Override
+  public void writeToParcel(@NonNull Parcel dest, int flags) {
+    dest.writeString(special);
+    dest.writeString(creator);
+    dest.writeString(view);
+    dest.writeString(cat_id);
+    dest.writeString(icon);
+    dest.writeString(link);
+    dest.writeString(description);
+    dest.writeString(id);
+    dest.writeString(time);
+    dest.writeString(title);
   }
 }
