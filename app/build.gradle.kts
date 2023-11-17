@@ -55,5 +55,10 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer-core:2.19.1")
     implementation("com.google.android.exoplayer:exoplayer-dash:2.19.1")
     implementation("com.google.android.exoplayer:exoplayer-ui:2.19.1")
+    //RoomDb
+    val room_version = "2.6.0"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
 
 }
